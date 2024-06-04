@@ -21,6 +21,9 @@ const Hero = () => {
          handleClick={handleScroll}
           />
       </div>
+      <div className='hero__image-container'>
+        <div className=''></div>
+      </div>
     </div>
   )
 }
