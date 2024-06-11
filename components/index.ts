@@ -3,6 +3,7 @@ import CustomButton from "./CustomButton"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import SearchBar from "./SearchBar"
+import SearchManufacturer from "./SearchManufacturer"
 import CustomFilter from "./CustomFilter"
 
 export {
@@ -11,5 +12,6 @@ export {
     Navbar,
     Footer,
     SearchBar,
-    CustomFilter
+    CustomFilter,
+    SearchManufacturer
 }
