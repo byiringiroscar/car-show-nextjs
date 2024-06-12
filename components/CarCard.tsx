@@ -1,11 +1,18 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
+import Image from 'next/image'
+import { CarProps } from '@/types'
+
+
+interface CarCardProps {
+  car: CarProps
+}
 
 
 
-
-const CarCard = ({car}) => {
+const CarCard = ({ car }: CarCardProps) => {
   return (
-    <div>CarCard</div>
+    <div>{car.model}</div>
   )
 }
 

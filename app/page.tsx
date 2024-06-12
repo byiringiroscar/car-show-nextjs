@@ -5,10 +5,10 @@ import { fetchCars } from "@/utils";
 export default async function Home() {
   const allCars = await fetchCars();
 
+  console.log(allCars)
+
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
- 
-  console.log(allCars)
   return (
     <main className="overflow-hidden">
       <Hero />
