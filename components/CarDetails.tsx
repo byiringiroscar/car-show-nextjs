@@ -1,3 +1,4 @@
+'use client'
 import React, { Fragment } from 'react'
 import { CarProps } from '@/types';
 import Image from 'next/image';
@@ -13,7 +14,18 @@ interface CarDetailsProps {
 
 const CarDetails = ({isOpen, closeModal, car}: CarDetailsProps) => {
   return (
-    <div>CarDetails</div>
+    <>
+        <Transition appear show={isOpen} as={Fragment}>
+            <Dialog as="div" className='relative z-10' onClose={closeModal}>
+                <Transition.Child>
+                    <div className='fixed inset-0 bg-black bg-opacity-25' />
+
+                </Transition.Child>
+
+            </Dialog>
+
+        </Transition>
+    </>
   )
 }
 
