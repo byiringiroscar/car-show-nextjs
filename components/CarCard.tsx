@@ -20,7 +20,13 @@ const CarCard = ({ car }: CarCardProps) => {
     drive
   }  = car;
   return (
-    <div>{car.model}</div>
+    <div className='car-card group'>
+      <div className='car-card__content'>
+        <h2 className='car-card__content-title'>
+          {make} {model}
+        </h2>
+      </div>
+    </div>
   )
 }
 
