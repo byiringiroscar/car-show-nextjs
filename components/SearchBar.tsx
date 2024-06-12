@@ -1,5 +1,5 @@
 'use client'
-import React, { useActionState, useState } from 'react'
+import React, { useActionState, useState, useEffect } from 'react'
 import SearchManufacturer from './SearchManufacturer'
 
 const SearchBar = () => {
