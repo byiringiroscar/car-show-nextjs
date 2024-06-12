@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { CarProps } from '@/types'
 import { calculateCarRent } from '@/utils'
 import CustomButton from './CustomButton'
+import CarDetails from './CarDetails'
 
 
 interface CarCardProps {
@@ -74,6 +75,8 @@ const CarCard = ({ car }: CarCardProps) => {
           />
         </div>
       </div>
+
+      <CarDetails />
     </div>
   )
 }
