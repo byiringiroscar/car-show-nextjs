@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { CarProps } from '@/types'
+import { calculateCarRent } from '@/utils'
 
 
 interface CarCardProps {
@@ -19,6 +20,8 @@ const CarCard = ({ car }: CarCardProps) => {
     transmission,
     drive
   }  = car;
+
+  const carRent = calculateCarRent(city_mpg, year)
   return (
     <div className='car-card group'>
       <div className='car-card__content'>
@@ -28,7 +31,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </div>
       <p>
         <span>
-          Car Rent ...
+          {carRent}
         </span>
       </p>
     </div>
