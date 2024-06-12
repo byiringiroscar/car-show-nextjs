@@ -56,9 +56,9 @@ const CarCard = ({ car }: CarCardProps) => {
             </p>
           </div>
           <div className='flex flex-col items-center justify-center gap-2'>
-            <Image src='/steering-wheel.svg' width={20} height={20} alt='steering wheel' />
+            <Image src='/gas.svg' width={20} height={20} alt='gaz' />
             <p className='text-[14px]'>
-              {transmission === 'a' ? 'Automatic' : 'Manual'}
+              {city_mpg} MPG
             </p>
           </div>
         </div>
