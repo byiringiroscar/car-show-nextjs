@@ -1,7 +1,14 @@
 import { CustomFilter, Hero, SearchBar } from "@/components";
 import Image from "next/image";
+import { fetchCars } from "@/utils";
 
-export default function Home() {
+export default async function Home() {
+  const allCars = await fetchCars();
+
+
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+ 
+  console.log(allCars)
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -17,6 +24,13 @@ export default function Home() {
               <CustomFilter />
             </div>
         </div>
+
+        {!isDataEmpty ? (
+          <section>
+            WE HAVE CARS
+          </section>
+        ): null}
+
       </div>
     </main>
   );
