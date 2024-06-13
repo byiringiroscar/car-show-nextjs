@@ -81,8 +81,8 @@ const CarDetails = ({isOpen, closeModal, car}: CarDetailsProps) => {
                                         {Object.entries(car).map(([key,
                                          value]) => (
                                             <div key={key} className='flex justify-between gap-5 w-full text-right'>
-                                                <h4>{key}</h4>
-                                                <p>{value}</p>
+                                                <h4 className='text-grey capitalize'>{key.split("_").join(" ")}</h4>
+                                                <p className='text-black-100 font-semibold'>{value}</p>
                                             </div>
                                         ))}
                                     </div>
