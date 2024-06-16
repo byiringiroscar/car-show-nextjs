@@ -44,6 +44,9 @@ const SearchBar = () => {
     else {
       searchParams.delete('manufacturer')
     }
+
+
+    const newPathname = `${window.location.pathname}?${searchParams.toString()}`
   }
   return (
     <form action="" className='searchbar' onSubmit={handleSearch}>
