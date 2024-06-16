@@ -91,8 +91,9 @@ export default  function Home() {
             
             )}
             <ShowMore
-              pageNumber={(limit || 10) / 10}
-              isNext={(limit || 10) > allCars.length}
+              pageNumber={limit / 10}
+              isNext={limit > allCars.length}
+              setLimit={setLimit}
             />
           </section>
         ): (
