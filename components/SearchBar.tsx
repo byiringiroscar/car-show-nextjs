@@ -2,6 +2,7 @@
 import React, { useActionState, useState, useEffect } from 'react'
 import SearchManufacturer from './SearchManufacturer'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 
 const SearchButton = ({otherClasses}: { otherClasses: string}) => {
@@ -19,6 +20,7 @@ const SearchButton = ({otherClasses}: { otherClasses: string}) => {
 }
 
 const SearchBar = () => {
+  const router = useRouter()
   const [manufacturer, setManufacturer] = useState('');
   const [model, setModel] = useState("")
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -47,6 +49,8 @@ const SearchBar = () => {
 
 
     const newPathname = `${window.location.pathname}?${searchParams.toString()}`
+
+    router.push(newPathname)
   }
   return (
     <form action="" className='searchbar' onSubmit={handleSearch}>
