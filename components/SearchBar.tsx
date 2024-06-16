@@ -26,6 +26,24 @@ const SearchBar = () => {
     if(manufacturer === '' && model === ''){
       return alert('Please fill in the search bar')
     }
+
+  }
+
+  const updateSearchParams = (model: string, manufacturer: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    if(model){
+      searchParams.set('model', model)
+    }
+    else {
+      searchParams.delete('model')
+    }
+    if(manufacturer){
+      searchParams.set('manufacturer', manufacturer)
+    }
+    else {
+      searchParams.delete('manufacturer')
+    }
   }
   return (
     <form action="" className='searchbar' onSubmit={handleSearch}>
