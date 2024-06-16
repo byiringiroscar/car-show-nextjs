@@ -15,13 +15,36 @@ export default  function Home() {
 
   // filter states
   const [fuel, setFuel] = useState("")
-  const [year, setYear] = useState("")
+  const [year, setYear] = useState(2022)
 
 
   // paginationstates
   const [limit, setLimit] = useState(10)
 
+  const getCars = async () => {
+     try {
+      const result = await fetchCars({
+        manufacturer: manufacturer || '',
+        year: year || 2022,
+        fuel: fuel || '',
+        limit: limit || 10,
+        model: model || '',
+      });
+      setAllCars(result)
+     }
+     catch(error){
+
+     }
+
+     finally{
+      setLoading(false)
+     }
+    
+  }
+
   useEffect(()=> {
+
+    getCars();
 
   }, [fuel, year, limit, manufacturer, model])
 
