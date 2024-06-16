@@ -74,8 +74,8 @@ export default  function Home() {
               ))}
             </div>
             <ShowMore
-              pageNumber={(searchParams.limit || 10) / 10}
-              isNext={(searchParams.limit || 10) > allCars.length}
+              pageNumber={(limit || 10) / 10}
+              isNext={(limit || 10) > allCars.length}
             />
           </section>
         ): (
