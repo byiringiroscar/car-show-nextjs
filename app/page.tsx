@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
 import { fetchCars } from "@/utils";
 import { fuels, manufacturers, yearsOfProduction } from "@/constants";
+import Image from "next/image";
 
 export default  function Home() {
   const [allCars, setAllCars] = useState([])
@@ -59,20 +60,36 @@ export default  function Home() {
           <p>Explore out cars you might like</p>
         </div>
         <div className='home__filters'>
-          <SearchBar />
+          <SearchBar
+            setManufacturer={setManufacturer}
+            setmodel={setmodel}
+           />
           <div className='home__filter-container'>
-              <CustomFilter title='fuel' options={fuels} />
-              <CustomFilter title='year' options={yearsOfProduction} />
+              <CustomFilter setFilter={setFuel} title='fuel' options={fuels} />
+              <CustomFilter setFilter={setYear} title='year' options={yearsOfProduction} />
             </div>
         </div>
 
-        {!isDataEmpty ? (
+        {allCars.length > 0 ? (
           <section>
             <div className="home__cars-wrapper">
               {allCars?.map((car) => (
                 <CarCard car={car} />
               ))}
             </div>
+
+            {loading && (
+              <div className="mt-16 w-full flex-center">
+                <Image
+                  src="/loading.svg"
+                  alt="loading"
+                  width={50}
+                  height={50}
+                  className='object-contain'
+                />
+              </div>
+            
+            )}
             <ShowMore
               pageNumber={(limit || 10) / 10}
               isNext={(limit || 10) > allCars.length}
