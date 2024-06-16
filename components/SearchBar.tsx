@@ -23,7 +23,9 @@ const SearchBar = () => {
   const [model, setModel] = useState("")
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('searching...')
+    if(manufacturer === '' && model === ''){
+      return alert('Please fill in the search bar')
+    }
   }
   return (
     <form action="" className='searchbar' onSubmit={handleSearch}>
