@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
 import { fetchCars } from "@/utils";
 import { fuels, manufacturers, yearsOfProduction } from "@/constants";
@@ -10,7 +10,7 @@ export default  function Home() {
 
 
   // search states
-  const [manufacturers, setManufacturers] = useState('')
+  const [manufacturer, setManufacturer] = useState('')
   const [model, setmodel] = useState("")
 
   // filter states
@@ -20,6 +20,10 @@ export default  function Home() {
 
   // paginationstates
   const [limit, setLimit] = useState(10)
+
+  useEffect(()=> {
+
+  }, [fuel, year, limit, manufacturer, model])
 
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
