@@ -12,7 +12,7 @@ export default  function Home() {
 
   // search states
   const [manufacturer, setManufacturer] = useState('')
-  const [model, setmodel] = useState("")
+  const [model, setModel] = useState("")
 
   // filter states
   const [fuel, setFuel] = useState("")
@@ -62,7 +62,7 @@ export default  function Home() {
         <div className='home__filters'>
           <SearchBar
             setManufacturer={setManufacturer}
-            setmodel={setmodel}
+            setModel={setModel}
            />
           <div className='home__filter-container'>
               <CustomFilter setFilter={setFuel} title='fuel' options={fuels} />
