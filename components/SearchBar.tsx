@@ -20,6 +20,7 @@ const SearchButton = ({otherClasses}: { otherClasses: string}) => {
 
 const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState('');
+  const [model, setModel] = useState("")
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log('searching...')
@@ -41,6 +42,15 @@ const SearchBar = () => {
           height={25}
           className='absolute w-[20px] h-[20px] ml-4'
         />
+        <input 
+        type="text"
+        name='model'
+        value={model}
+        onChange={(e) => setModel(e.target.value)}
+        placeholder='Tiguan'
+        className='searchbar__input'
+         />
+        <SearchButton otherClasses="sm:hidden" />
       </div>
     </form>
   )
