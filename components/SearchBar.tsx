@@ -2,6 +2,15 @@
 import React, { useActionState, useState, useEffect } from 'react'
 import SearchManufacturer from './SearchManufacturer'
 
+
+const SearchButton = () => {
+  return (
+    <button className='searchbar__button'>
+      Search
+    </button>
+  )
+}
+
 const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState('');
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,6 +24,7 @@ const SearchBar = () => {
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
          />
+         <SearchButton />
       </div>
     </form>
   )
