@@ -1,18 +1,27 @@
 'use client'
+import { useState } from "react";
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
-import Image from "next/image";
 import { fetchCars } from "@/utils";
 import { fuels, manufacturers, yearsOfProduction } from "@/constants";
-import { FilterProps } from "@/types";
 
-export default async function Home({ searchParams }) {
-  const allCars = await fetchCars({
-    manufacturer: searchParams.manufacturer || '',
-    year: searchParams.year || 2022,
-    fuel: searchParams.fuel || '',
-    limit: searchParams.limit || 10,
-    model: searchParams.model || '',
-  });
+export default  function Home() {
+  const [allCars, setAllCars] = useState([])
+  const [loading, setLoading] = useState(false)
+
+
+  // search states
+  const [manufacturers, setManufacturers] = useState('')
+  const [model, setmodel] = useState("")
+
+  // filter states
+  const [fuel, setFuel] = useState("")
+  const [year, setYear] = useState("")
+
+
+  // paginationstates
+  const [limit, setLimit] = useState(10)
+
+
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
     <main className="overflow-hidden">
