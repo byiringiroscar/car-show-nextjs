@@ -1,6 +1,9 @@
+'use client'
 import React from 'react'
+import { useRouter } from 'next/navigation'
+import { ShowMoreProps } from '@/types'
 
-const ShowMore = () => {
+const ShowMore = ({ pageNumber, isNext}: ShowMoreProps) => {
   return (
     <div>ShowMore</div>
   )
